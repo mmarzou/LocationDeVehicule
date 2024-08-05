@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Animated, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import ButtonRedirection from './ButtonRedirection';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Animated,
+  StyleSheet,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import ButtonRedirection from "./ButtonRedirection";
 
 export default function MenuRight({ navigation }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,18 +34,39 @@ export default function MenuRight({ navigation }) {
   };
 
   return (
-    <Animated.View style={[styles.menu, { width: widthAnim, shadowOpacity: menuOpen ? '#1a1a1a' : 'transparent' }]}>
-      <TouchableOpacity 
-        style={styles.toggleButton}
-        onPress={toggleMenu}
-      >
-        <Ionicons name={menuOpen ? 'close' : 'menu'} size={30} color={menuOpen ? 'white' : 'black'} />
+    <Animated.View
+      style={[
+        styles.menu,
+        {
+          width: widthAnim,
+          shadowOpacity: menuOpen ? "#1a1a1a" : "transparent",
+        },
+      ]}
+    >
+      <TouchableOpacity style={styles.toggleButton} onPress={toggleMenu}>
+        <Ionicons
+          name={menuOpen ? "close" : "menu"}
+          size={30}
+          color={menuOpen ? "black" : "black"}
+        />
       </TouchableOpacity>
       {menuOpen && (
         <ScrollView style={styles.scrollView}>
-          <ButtonRedirection text="Voir les utilisateurs" url="User" navigation={navigation} />
-          <ButtonRedirection text="Voir les Exemples de Hooks" url="HooksExample" navigation={navigation} />
-          <ButtonRedirection text="Menu principal" url="Home" navigation={navigation} />
+          <ButtonRedirection
+            text="Voir les utilisateurs"
+            url="User"
+            navigation={navigation}
+          />
+          <ButtonRedirection
+            text="Voir les Exemples de Hooks"
+            url="HooksExample"
+            navigation={navigation}
+          />
+          <ButtonRedirection
+            text="Menu principal"
+            url="Home"
+            navigation={navigation}
+          />
         </ScrollView>
       )}
     </Animated.View>
@@ -47,14 +75,15 @@ export default function MenuRight({ navigation }) {
 
 const styles = StyleSheet.create({
   menu: {
-    backgroundColor: '#1a1a1a',
-    position: 'absolute',
-    right: 0,
+    backgroundColor: "#FFFFFF",
+    textColor: "black",
+    position: "absolute",
+    left: 0,
     top: 0,
     bottom: 0,
     zIndex: 1000,
     elevation: 10,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -62,9 +91,9 @@ const styles = StyleSheet.create({
   toggleButton: {
     marginTop: 40,
     marginBottom: 20,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   scrollView: {
-    width: '100%',
+    width: "100%",
   },
 });
