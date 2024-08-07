@@ -11,20 +11,20 @@ const CardButton = ({ onPress, title, style = {}, textStyle = {} }) => {
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: '#aacbf0',
+        backgroundColor: '#D4A15D',
         padding: 10,
         borderRadius: 5,
         alignItems: 'center',
         margin: 10,
-        height: 250,
-        width: "auto",
+        height: "auto",
+        width: 300,
     },
     buttonText: {
         color: '#000',
-        fontSize: 30,
+        fontSize: 28,
     },
     buttonHover: {
-        backgroundColor: '#88A9D2',
+        backgroundColor: '#D6933C',
     },
 });
 
