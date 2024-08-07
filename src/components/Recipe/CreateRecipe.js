@@ -1,27 +1,30 @@
+// src/screens/CreateRecipe.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
-import MainButton from '../Buttons/MainButton'; // Import MainButton directly
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { createRecipe } from '../../api/CookMateAPI';
 
-const CreateRecipe = () => {
+export default function CreateRecipeScreen() {
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [directions, setDirections] = useState('');
-    const [categories, setCategory] = useState('');
 
-    const handleCreateRecipe = () => {
-        console.log('Create Recipe button pressed');
-        console.log(`\n Recipe Name : ${recipeName}\n Ingredients : ${ingredients}\n Directions : ${directions}`);
+    const handleCreateRecipe = async () => {
+        try {
+            const newRecipe = {
+                name: recipeName,
+                ingredients: ingredients.split(','),
+                instructions: directions.split('.'),
+            };
+            await createRecipe(newRecipe);
+            Alert.alert('Success', 'Recipe created successfully!');
+        } catch (error) {
+            Alert.alert('Error', 'An error occurred while creating the recipe.');
+        }
     };
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Create Recipe</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Category"
-                value={categories}
-                onChangeText={setCategory}
-            />
             <TextInput
                 style={styles.input}
                 placeholder="Recipe Name"
@@ -30,46 +33,50 @@ const CreateRecipe = () => {
             />
             <TextInput
                 style={styles.input}
-                placeholder="Ingredients"
+                placeholder="Ingredients (comma separated)"
                 value={ingredients}
                 onChangeText={setIngredients}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Directions"
+                placeholder="Directions (period separated)"
                 value={directions}
                 onChangeText={setDirections}
             />
-            <MainButton title="Create Recipe" onPress={handleCreateRecipe} />
-            <MainButton title="Cancel" onPress={() => console.log('Cancel button pressed')} style={{ backgroundColor: '#dc3545' }} />
+            <TouchableOpacity style={styles.button} onPress={handleCreateRecipe}>
+                <Text style={styles.buttonText}>Create Recipe</Text>
+            </TouchableOpacity>
         </View>
     );
-};
+}
 
-const styles = StyleSheet.create({
+const styles = {
     container: {
         flex: 1,
-        justifyContent: 'center',
-        padding: 16,
+        padding: 20,
+        backgroundColor: '#f0f0f0',
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 16,
-        textAlign: 'center',
+        marginBottom: 20,
     },
     input: {
         height: 40,
-        borderColor: 'gray',
+        borderColor: '#ccc',
         borderWidth: 1,
-        marginBottom: 12,
-        paddingHorizontal: 8,
-        borderRadius: 20,
+        marginBottom: 10,
+        padding: 10,
+        borderRadius: 5,
+    },
+    button: {
+        backgroundColor: '#007bff',
+        padding: 10,
+        borderRadius: 5,
+        alignItems: 'center',
     },
     buttonText: {
-        color: '#FFFFFF',
+        color: '#fff',
         fontSize: 16,
     },
-});
-
-export default CreateRecipe;
+};
