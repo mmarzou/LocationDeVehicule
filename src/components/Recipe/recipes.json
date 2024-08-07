@@ -4,12 +4,16 @@
             "name": "Breakfast",
             "recipes": [
                 {
-                    "name": "Scrambled Eggs",
+                    "name": "English Breakfast",
+                    "image": "https://www.themealdb.com/images/media/meals/utxryw1511721587.jpg",
                     "ingredients": [
-                        "Eggs",
-                        "Salt",
-                        "Pepper",
-                        "Butter"
+                        "2 Sausage",
+                        "3 Bacon",
+                        "2 Mushrooms",
+                        "2 Tomatoes",
+                        "1 Slice Black Pudding",
+                        "2 Eggs",
+                        "1 Slice bread"
                     ],
                     "instructions": [
                         "Crack the eggs into a bowl.",
@@ -22,6 +26,7 @@
                 },
                 {
                     "name": "Pancakes",
+                    "image": "https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg",
                     "ingredients": [
                         "Flour",
                         "Sugar",
@@ -48,6 +53,7 @@
             "recipes": [
                 {
                     "name": "Chicken Caesar Salad",
+                    "image": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
                     "ingredients": [
                         "Romaine Lettuce",
                         "Grilled Chicken Breast",
@@ -65,6 +71,7 @@
                 },
                 {
                     "name": "Caprese Sandwich",
+                    "image": "https://www.themealdb.com/images/media/meals/1549542877.jpg",
                     "ingredients": [
                         "Ciabatta Bread",
                         "Tomato",
@@ -93,6 +100,7 @@
             "recipes": [
                 {
                     "name": "Spaghetti Bolognese",
+                    "image": "https://www.themealdb.com/images/media/meals/sutysw1468247559.jpg",
                     "ingredients": [
                         "Spaghetti",
                         "Ground Beef",
@@ -118,6 +126,7 @@
                 },
                 {
                     "name": "Grilled Salmon",
+                    "image": "https://www.themealdb.com/images/media/meals/1548772327.jpg",
                     "ingredients": [
                         "Salmon Fillets",
                         "Lemon",
