@@ -1,15 +1,14 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Import the icon library
+import Icon from 'react-native-vector-icons/Ionicons';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
-import HomeScreen from '../screens/HomeScreen';
 import UserScreen from '../screens/UserScreen';
 import CreateUserScreen from '../screens/CreateUserScreen';
 import CreateRecipeScreen from '../screens/CreateRecipeScreen';
-import RecipeScreen from '../screens/RecipeScreen';
 import BrowseRecipe from '../components/Recipe/BrowseRecipe';
+import StackNavigator from './StackNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,14 +18,11 @@ const DrawerNavigator = () => {
             <Drawer.Navigator initialRouteName="Home">
                 <Drawer.Screen
                     name="Home"
-                    component={HomeScreen}
+                    component={StackNavigator}
                     options={{
                         drawerIcon: ({ focused, size }) => (
                             <Icon name="home-outline" size={size} color={focused ? '#7cc' : '#ccc'} />
                         ),
-                        // headerStyle: {
-                        //     backgroundColor: '#EA9F3C',
-                        // },
                     }}
                 />
                 <Drawer.Screen
@@ -70,7 +66,7 @@ const DrawerNavigator = () => {
                     component={BrowseRecipe}
                     options={{
                         drawerIcon: ({ focused, size }) => (
-                            <Icon name="person-add-outline" size={size} color={focused ? '#7cc' : '#ccc'} />
+                            <Icon name="book-outline" size={size} color={focused ? '#7cc' : '#ccc'} />
                         ),
                     }}
                 />
@@ -79,7 +75,7 @@ const DrawerNavigator = () => {
                     component={CreateRecipeScreen}
                     options={{
                         drawerIcon: ({ focused, size }) => (
-                            <Icon name="person-add-outline" size={size} color={focused ? '#7cc' : '#ccc'} />
+                            <Icon name="create-outline" size={size} color={focused ? '#7cc' : '#ccc'} />
                         ),
                     }}
                 />
