@@ -1,28 +1,24 @@
+// src/screens/CreateRecipe.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { createRecipe } from '../../api/CookMateAPI';
 
 export default function CreateRecipeScreen() {
-    const [recipeTitle, setRecipeTitle] = useState('');
+    const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState('');
-    const [steps, setSteps] = useState('');
-    const [description, setDescription] = useState('');
-    const [releaseYear, setReleaseYear] = useState('');
+    const [directions, setDirections] = useState('');
 
     const handleCreateRecipe = async () => {
-        const recipeData = {
-            title: recipeTitle,
-            ingredients: ingredients.split(',').map(item => item.trim()),
-            description: description,
-            steps: steps.split('.').map(item => item.trim()),
-            releaseYear: parseInt(releaseYear, 10)
-        };
-
         try {
-            const response = await createRecipe(recipeData);
-            Alert.alert('Success', 'Recipe created successfully');
+            const newRecipe = {
+                name: recipeName,
+                ingredients: ingredients.split(','),
+                instructions: directions.split('.'),
+            };
+            await createRecipe(newRecipe);
+            Alert.alert('Success', 'Recipe created successfully!');
         } catch (error) {
-            Alert.alert('Error', 'Failed to create recipe');
+            Alert.alert('Error', 'An error occurred while creating the recipe.');
         }
     };
 
@@ -32,8 +28,8 @@ export default function CreateRecipeScreen() {
             <TextInput
                 style={styles.input}
                 placeholder="Recipe Name"
-                value={recipeTitle}
-                onChangeText={setRecipeTitle}
+                value={recipeName}
+                onChangeText={setRecipeName}
             />
             <TextInput
                 style={styles.input}
@@ -43,22 +39,9 @@ export default function CreateRecipeScreen() {
             />
             <TextInput
                 style={styles.input}
-                placeholder="Steps (period separated)"
-                value={steps}
-                onChangeText={setSteps}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Description"
-                value={description}
-                onChangeText={setDescription}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Release Year"
-                value={releaseYear}
-                onChangeText={setReleaseYear}
-                keyboardType="numeric"
+                placeholder="Directions (period separated)"
+                value={directions}
+                onChangeText={setDirections}
             />
             <TouchableOpacity style={styles.button} onPress={handleCreateRecipe}>
                 <Text style={styles.buttonText}>Create Recipe</Text>
@@ -67,31 +50,33 @@ export default function CreateRecipeScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const styles = {
     container: {
         flex: 1,
-        padding: 16,
-        backgroundColor: '#fff',
+        padding: 20,
+        backgroundColor: '#f0f0f0',
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 16,
+        marginBottom: 20,
     },
     input: {
         height: 40,
         borderColor: '#ccc',
         borderWidth: 1,
-        marginBottom: 12,
-        paddingHorizontal: 8,
+        marginBottom: 10,
+        padding: 10,
+        borderRadius: 5,
     },
     button: {
-        backgroundColor: '#007BFF',
+        backgroundColor: '#007bff',
         padding: 10,
+        borderRadius: 5,
         alignItems: 'center',
     },
     buttonText: {
         color: '#fff',
         fontSize: 16,
     },
-});
+};
