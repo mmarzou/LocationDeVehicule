@@ -1,31 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import CreateRecipe from '../components/Recipe/CreateRecipe';
-import Loader from '../components/Loader/Loader';
 
-const CreateRecipeScreen = () => {
-    const [loader, setLoader] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setLoader(false);
-        }, 2000);
-        console.log(`Loading screen loaded.`);
-    }, []);
-
+export default function CreateRecipeScreen() {
     return (
         <View style={styles.container}>
-            {loader ? <Loader /> : <CreateRecipe />}
+            <CreateRecipe />
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
         padding: 16,
+        backgroundColor: '#fff',
     },
 });
-
-export default CreateRecipeScreen;

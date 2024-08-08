@@ -13,10 +13,14 @@ export const getRecipes = async () => {
         throw error;
     }
 };
-
+// Create Recipes API functions
 export const createRecipe = async (recipe) => {
     try {
-        const response = await axios.post(`${API_URL}/recipes`, recipe);
+        const response = await axios.post(API_URL, recipe, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
         return response.data;
     } catch (error) {
         console.error('Error creating recipe:', error);
@@ -24,4 +28,3 @@ export const createRecipe = async (recipe) => {
     }
 };
 
-// You can add more API functions here for other entities like users, ingredients, etc.
