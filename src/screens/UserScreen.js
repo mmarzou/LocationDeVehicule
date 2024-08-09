@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import { getUserApi } from '../api/userApi';
 
 export default function UserScreen({ navigation }) {
-  const [utilisateurs, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -13,9 +13,11 @@ export default function UserScreen({ navigation }) {
   async function fetchUsers() {
     try {
       setLoading(true);
-      setUser(await getUserApi());
+      const fetchedUsers = await getUserApi();
+      setUsers(fetchedUsers);
     } catch (error) {
       console.error("Error fetching users:", error);
+      Alert.alert("Error", "Failed to fetch users. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -25,7 +27,7 @@ export default function UserScreen({ navigation }) {
     <View style={styles.container}>
       {loading && <ActivityIndicator size="large" color="#0000ff" />}
       <ScrollView contentContainerStyle={styles.scrollView}>
-        {Array.isArray(utilisateurs) && utilisateurs.map((user, index) => (
+        {Array.isArray(users) && users.map((user, index) => (
           <View key={index} style={styles.userCard}>
             <Text style={styles.userName}>{user.nom}</Text>
             <Text style={styles.userInfo}>Other Info: {user.otherInfo}</Text>
@@ -33,7 +35,7 @@ export default function UserScreen({ navigation }) {
         ))}
       </ScrollView>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateUser')}>
-        <Text style={styles.buttonText}>Ajouter un Utilisateur</Text>
+        <Text style={styles.buttonText}>Add User</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={fetchUsers}>
         <Text style={styles.buttonText}>Refresh Users</Text>
@@ -57,26 +59,36 @@ const styles = StyleSheet.create({
   userCard: {
     backgroundColor: '#fff',
     padding: 15,
-    borderRadius: 5,
-    marginBottom: 10,
-    width: '100%',
+    borderRadius: 10,
+    marginBottom: 15,
+    width: '90%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
   },
   userName: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
+    color: '#333',
   },
   userInfo: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#666',
+    marginTop: 5,
   },
   button: {
     backgroundColor: '#007bff',
-    padding: 10,
+    padding: 15,
     borderRadius: 5,
     marginVertical: 10,
+    width: '90%',
+    alignItems: 'center',
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
+    fontWeight: 'bold',
   },
 });

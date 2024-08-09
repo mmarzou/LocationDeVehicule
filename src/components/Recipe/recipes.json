@@ -1,0 +1,149 @@
+{
+    "categories": [
+        {
+            "name": "Breakfast",
+            "recipes": [
+                {
+                    "name": "English Breakfast",
+                    "image": "https://www.themealdb.com/images/media/meals/utxryw1511721587.jpg",
+                    "ingredients": [
+                        "2 Sausage",
+                        "3 Bacon",
+                        "2 Mushrooms",
+                        "2 Tomatoes",
+                        "1 Slice Black Pudding",
+                        "2 Eggs",
+                        "1 Slice bread"
+                    ],
+                    "instructions": [
+                        "Crack the eggs into a bowl.",
+                        "Whisk the eggs until well beaten.",
+                        "Heat a non-stick pan over medium heat and melt the butter.",
+                        "Pour the beaten eggs into the pan and season with salt and pepper.",
+                        "Cook the eggs, stirring occasionally, until they are softly set.",
+                        "Remove from heat and serve hot."
+                    ]
+                },
+                {
+                    "name": "Pancakes",
+                    "image": "https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg",
+                    "ingredients": [
+                        "Flour",
+                        "Sugar",
+                        "Baking Powder",
+                        "Salt",
+                        "Milk",
+                        "Egg",
+                        "Butter"
+                    ],
+                    "instructions": [
+                        "In a large bowl, whisk together the flour, sugar, baking powder, and salt.",
+                        "In a separate bowl, whisk together the milk, egg, and melted butter.",
+                        "Pour the wet ingredients into the dry ingredients and stir until just combined.",
+                        "Heat a non-stick pan or griddle over medium heat.",
+                        "Pour 1/4 cup of batter onto the pan for each pancake.",
+                        "Cook until bubbles form on the surface, then flip and cook until golden brown.",
+                        "Serve hot with your favorite toppings."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Lunch",
+            "recipes": [
+                {
+                    "name": "Chicken Caesar Salad",
+                    "image": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
+                    "ingredients": [
+                        "Romaine Lettuce",
+                        "Grilled Chicken Breast",
+                        "Croutons",
+                        "Parmesan Cheese",
+                        "Caesar Dressing"
+                    ],
+                    "instructions": [
+                        "Wash and chop the romaine lettuce.",
+                        "Grill the chicken breast until cooked through, then slice it into strips.",
+                        "In a large bowl, combine the lettuce, chicken, croutons, and Parmesan cheese.",
+                        "Drizzle with Caesar dressing and toss to coat evenly.",
+                        "Serve immediately."
+                    ]
+                },
+                {
+                    "name": "Caprese Sandwich",
+                    "image": "https://www.themealdb.com/images/media/meals/1549542877.jpg",
+                    "ingredients": [
+                        "Ciabatta Bread",
+                        "Tomato",
+                        "Fresh Mozzarella",
+                        "Basil Leaves",
+                        "Balsamic Glaze",
+                        "Olive Oil",
+                        "Salt",
+                        "Pepper"
+                    ],
+                    "instructions": [
+                        "Slice the ciabatta bread in half horizontally.",
+                        "Drizzle olive oil on both sides of the bread.",
+                        "Layer tomato slices, fresh mozzarella, and basil leaves on the bottom half of the bread.",
+                        "Season with salt and pepper.",
+                        "Drizzle balsamic glaze on top of the ingredients.",
+                        "Cover with the top half of the bread.",
+                        "Press the sandwich together gently.",
+                        "Cut into individual servings and serve."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Dinner",
+            "recipes": [
+                {
+                    "name": "Spaghetti Bolognese",
+                    "image": "https://www.themealdb.com/images/media/meals/sutysw1468247559.jpg",
+                    "ingredients": [
+                        "Spaghetti",
+                        "Ground Beef",
+                        "Onion",
+                        "Garlic",
+                        "Tomato Sauce",
+                        "Tomato Paste",
+                        "Red Wine",
+                        "Olive Oil",
+                        "Salt",
+                        "Pepper",
+                        "Italian Seasoning"
+                    ],
+                    "instructions": [
+                        "Cook the spaghetti according to package instructions.",
+                        "In a large skillet, heat olive oil over medium heat.",
+                        "Add the onion and garlic, and cook until softened.",
+                        "Add the ground beef and cook until browned.",
+                        "Stir in the tomato sauce, tomato paste, red wine, salt, pepper, and Italian seasoning.",
+                        "Simmer the sauce for 20-30 minutes, stirring occasionally.",
+                        "Serve the sauce over the cooked spaghetti."
+                    ]
+                },
+                {
+                    "name": "Grilled Salmon",
+                    "image": "https://www.themealdb.com/images/media/meals/1548772327.jpg",
+                    "ingredients": [
+                        "Salmon Fillets",
+                        "Lemon",
+                        "Olive Oil",
+                        "Salt",
+                        "Pepper",
+                        "Dill"
+                    ],
+                    "instructions": [
+                        "Preheat the grill to medium-high heat.",
+                        "Brush the salmon fillets with olive oil and season with salt, pepper, and dill.",
+                        "Place the salmon fillets on the grill, skin side down.",
+                        "Grill for 4-6 minutes per side, or until the salmon is cooked to your desired doneness.",
+                        "Squeeze fresh lemon juice over the grilled salmon before serving."
+                    ]
+                }
+            ]
+        }
+    ]
+}

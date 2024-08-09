@@ -1,25 +1,36 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { SearchBar } from 'react-native-elements';
+import { MainButton } from '../components/index'
 
 export default function HomeScreen({ navigation }) {
+  const [search, setSearch] = useState('');
+
+  const updateSearch = (search) => {
+    setSearch(search);
+  };
 
   return (
     <View style={styles.container}>
-
-
-      <Image source={require('../../assets/favicon.png')} style={styles.logo} />
-      <Text style={styles.title}>Bienvenue chez Location de Véhicules</Text>
-      <Text style={styles.subtitle}>Réservez votre véhicule préféré facilement et rapidement</Text>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('User')}>
-        <Text style={styles.buttonText}>Voir les utilisateurs</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HooksExample')}>
-        <Text style={styles.buttonText}>Voir les Exemples de Hooks</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('DemoMenu')}>
-        <Text style={styles.buttonText}>Demo Menu</Text>
-      </TouchableOpacity>
+      <SearchBar
+        placeholder="Search Recipes..."
+        onChangeText={updateSearch}
+        value={search}
+        containerStyle={styles.searchContainer}
+        inputContainerStyle={styles.searchInputContainer}
+      />
+      <ImageBackground source={require("../../assets/header.jpg")} style={styles.imageBackground}
+        resizeMode='cover'
+      >
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>Welcome to CookMate</Text>
+          <Text style={styles.subtitle}>
+            Your favorite cooking app. Discover new recipes and share your own.
+          </Text>
+        </View>
+      </ImageBackground>
+      <MainButton title="Login" onPress={() => navigation.navigate('Login')} />
+      <MainButton title="Browse Recipes" onPress={() => navigation.navigate('Browse Recipe')} style={{ backgroundColor: '#28a745' }} />
     </View>
   );
 }
@@ -27,35 +38,39 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
   },
-  logo: {
-    width: 150,
-    height: 150,
-    marginBottom: 20,
+  imageBackground: {
+    height: '60%',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode: 'contain',
+  },
+  textContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    bottom: 100,
+    backgroundColor: 'rgba(0,0,0,0.4)'
   },
   title: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: 'bold',
-    marginBottom: 10,
+    color: '#fff',
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  button: {
-    backgroundColor: '#007bff',
-    padding: 10,
-    borderRadius: 5,
-    marginVertical: 10,
-  },
-  buttonText: {
     color: '#fff',
-    fontSize: 16,
+    textAlign: 'center',
+  },
+  searchContainer: {
+    backgroundColor: '#fff',
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+    width: '100%',
+    padding: 0,
+  },
+  searchInputContainer: {
+    backgroundColor: '#fff',
   },
 });
